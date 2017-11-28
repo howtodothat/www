@@ -1,0 +1,18 @@
+<div id="fh5co-hero" class="ng-scope">
+	<!-- End fh5co-arrow -->
+	<div class="container">
+		<div class="row mg-top-20">
+			<div class="col-md-12 wrap-home" ng-show="vm.showList">
+				<div class="box-faqs text-left pd-bottom-15">
+					<div class="faq-container" ng-repeat="(groupname, list) in vm.models">
+						<h3 class="faq-group-name">{{ groupname }}</h3>
+						<div class="faq-listing" ng-repeat="model in list">
+							<h4 class="faq-title" ng-click="vm.toggleElement()"><i class="fa fa-fw fa-caret-right"></i> {{ model.title }}</h4>
+							<div class="faq-content" ng-bind-html="model.content">{{ model.content }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

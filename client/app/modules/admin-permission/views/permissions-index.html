@@ -1,0 +1,86 @@
+<!-- Search Content Start-->
+<section class="content">
+	<div class="row" ng-hide="true">
+		<div class="col-xs-12">
+			<form>
+				<div class="box">
+					<div ng-click="vm.showSearch = !vm.showSearch" class="box-header with-border cursor">
+						<h4 class="box-title">Search</h4>
+						<div class="pull-right box-tools">
+							<button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
+								<i class="fa fa-search"></i>
+							</button>
+						</div>
+					</div>
+					<div class="box-body" ng-show="vm.showSearch">
+						<div class="col-xs-2">
+							<label for="exampleInputName2" class="control-label">Code:</label>
+							<input type="text" class="form-control" ng-model="vm.params.AdjustmentCodeSearch.code" id="date3" placeholder="Code">
+						</div>
+						<div class="col-xs-2">
+							<label for="exampleInputName2" class="control-label">Effective Date:</label>
+							<input uib-datepicker-popup="{{vm.format}}" ng-model="vm.params.AdjustmentCodeSearch.effective_date_start" is-open="vm.popup1.opened" type="text"
+								class="form-control" ng-click="vm.open1()" id="date2" placeholder="From">
+						</div>
+						<div class="col-sm-2">
+							<label for="exampleInputName2" class="control-label">Effective Date:</label>
+							<input uib-datepicker-popup="{{vm.format}}" ng-model="vm.params.AdjustmentCodeSearch.effective_date_end" is-open="vm.popup2.opened" type="text" class="form-control"
+								ng-click="vm.open2()" id="date1" placeholder="To">
+						</div>
+						<div class="col-sm-2">
+							<label for="exampleInputName2" class="control-label">&nbsp</label>
+							<button type="button" ng-click="vm.resetParams()" style="display:block" class="btn btn-default">Reset</button>
+						</div>
+					</div>
+					<div class="box-footer" ng-show="vm.showSearch">
+						<div class="form-group">
+							<button type="button" ng-click="vm.cancelSearch()" class="btn btn-warning pull-right">Cancel</button>
+							<button type="submit" ng-click="vm.onSearch()" class="btn btn-primary pull-right mg-right-10">Search</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="box">
+				<div class="box-body">
+					<!--<button type="submit" class="btn btn-primary" ng-click="vm.addNewRole()">Add new role</button>-->
+					<button type="submit" class="btn btn-primary" ng-click="vm.addNewPermission()">Add new permission</button>
+					<table ng-if="vm.totalItems != 0" id="example2" class="table table-bordered table-hover dataTable">
+						<thead>
+							<tr sort-thead on-sort="vm.onSort(item)">
+								<th no-sort class="text-center pd-left-0 pd-right-0">#</th>
+								<th no-sort key="code">Role Name</th>
+								<th no-sort default-sort key="created_at">Created at</th>
+								<th no-sort key="udpated_at">Updated at</th>
+								<th no-sort class="text-center "></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="role in vm.roleListing">
+								<td class="text-center">{{ ($index + 1) }}</td>
+								<!-- <td class="text-center">{{ ( vm.paging.limit * (vm.currentPage-1)) + ($index + 1) }}</td> -->
+								<td>{{ role.description }}</td>
+								<td>{{ role.createdAt }}</td>
+								<td>{{ role.updatedAt }}</td>
+								<td class="text-center">
+									<a ng-click="vm.addNewRole(role.id)" href="#">
+										<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="text-center" ng-if="vm.totalItems == 0">No Result</p>
+					<!-- <pagination ng-if="vm.totalItems != 0"
+						on-changed="vm.onChangePage(item)"
+						total-items="vm.totalItems"
+						page-num="vm.pageNum"
+						current-page="vm.currentPage"></pagination> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

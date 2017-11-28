@@ -1,0 +1,144 @@
+{
+  "name": "sb12-app",
+  "version": "1.0.0",
+  "description": "sb12-app",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp fast",
+    "watch": "gulp watch",
+    "build:prod": "gulp"
+  },
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-animate": "1.6.5",
+    "angular-block-ui": "^0.2.2",
+    "angular-bootstrap-datetimepicker": "1.0.1",
+    "angular-br-filters": "0.7.0",
+    "angular-breadcrumb": "^0.4.1",
+    "angular-cookies": "1.6.4",
+    "angular-filesize-filter": "^0.1.3",
+    "angular-input-masks": "2.5.0",
+    "angular-permission": "^5.2.1",
+    "angular-resizable": "^1.2.0",
+    "angular-resource": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-sanitize": "1.5.8",
+    "angular-save-html-to-pdf": "1.0.1",
+    "angular-sessionstorage": "^1.1.1",
+    "angular-timeago": "0.4.4",
+    "angular-ui-bootstrap": "2.1.3",
+    "angular-ui-mask": "^1.8.7",
+    "angular-ui-router": "^0.4.2",
+    "angular-ui-tree": "^2.22.5",
+    "arrive": "2.3.1",
+    "bootstrap": "^3.3.7",
+    "bootstrap-submenu": "2.0.4",
+    "canvg-fixed": "1.0.0",
+    "highcharts": "5.0.7",
+    "highcharts-ng": "0.0.13",
+    "jquery": "^3.1.0",
+    "jquery-contextmenu": "^2.2.4",
+    "jquery-ui": "^1.12.1",
+    "jspdf-fixed": "1.0.0",
+    "moment": "^2.14.1",
+    "ng-csv": "0.3.6",
+    "ng-file-upload": "^12.2.13",
+    "ng-infinite-scroll": "^1.3.0",
+    "ng-quill": "3.2.0",
+    "ng-tags-input": "^3.2.0",
+    "ng-toast": "^2.0.0",
+    "ngclipboard": "^1.1.1",
+    "ngmap": "1.17.6",
+    "textangular": "1.5.16",
+    "thenby": "*",
+    "underscore": "^1.8.3",
+    "angularjs-dropdown-multiselect": "2.0.0-beta.10"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "browserify-shim": "^3.8.12",
+    "chai": "^3.5.0",
+    "del": "^2.2.1",
+    "eslint-config-angular": "^0.5.0",
+    "eslint-plugin-angular": "^1.4.1",
+    "glob": "^7.0.5",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-connect": "^5.0.0",
+    "gulp-coverage": "^0.3.38",
+    "gulp-environments": "^0.1.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-group-concat": "^1.1.5",
+    "gulp-install": "^0.6.0",
+    "gulp-less": "^3.1.0",
+    "gulp-less-sourcemap": "^1.4.3",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-mocha": "^3.0.0",
+    "gulp-protractor": "^3.0.0",
+    "gulp-recursive-folder": "^0.9.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "merge-stream": "^1.0.0",
+    "mocha": "^3.0.2",
+    "protractor": "^4.0.3",
+    "sinon": "^1.17.5",
+    "sinon-chai": "^2.8.0",
+    "sinon-stub-promise": "^3.0.1",
+    "stackblur": "^1.0.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-paths": "^2.1.0",
+    "vinyl-source-stream": "^1.1.0",
+    "webdriver-manager": "^10.2.2"
+  },
+  "browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.js",
+    "jquery-ui": "./app/js/jquery-ui.min.js",
+    "file-download": "./app/js/jquery.fileDownload.js",
+    "underscore": "./node_modules/underscore/underscore.js",
+    "moment": "./node_modules/moment/moment.js",
+    "toastr": "./node_modules/toastr/toastr.js",
+    "highcharts": "./node_modules/highcharts/highcharts.js",
+    "stackblur": "./node_modules/stackblur/index.js",
+    "canvg-fixed": "./node_modules/canvg-fixed/canvg.js",
+    "rgbcolor": "./node_modules/canvg-fixed/rgbcolor.js",
+    "textAngular-rangy": "./node_modules/textangular/dist/textAngular-rangy.min.js",
+    "textAngular-sanitize": "./node_modules/textangular/dist/textAngular-sanitize.min.js",
+    "text-angular": "./node_modules/textangular/dist/textAngular.min.js"
+  },
+  "browserify-shim": {
+    "jquery": "$",
+    "ngmap": "NgMap",
+    "angular": {
+      "depends": [
+        "jquery"
+      ]
+    },
+    "underscore": "_",
+    "canvg-fixed": {
+      "depends": [
+        "rgbcolor"
+      ],
+      "exports": "canvg"
+    },
+    "moment": {
+      "exports": "moment"
+    },
+    "highcharts": {
+      "exports": "Highcharts"
+    },
+    "thenby": {
+      "exports": "firstBy"
+    },
+    "immutable": {
+      "exports": "Immutable"
+    }
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+<div class="modal-header">
+  <button type="button" class="close" aria-label="Close" ng-click="vm.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <h4 class="modal-title">{{ vm.roleId == null ? 'Add Role' : 'Edit Role' }}</h4>
+</div>
+<div class="modal-body">
+  <div class="row" ng-if="vm.roleId == null">
+    <div class="form-group col-md-6">
+      <div class="">
+        <label for="exampleInputEmail3" class="control-label">Role Name:</label>
+        <input name="formInput" type="text" class="form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched" id="exampleInputEmail3"
+          placeholder="Role Name" ng-model="vm.form.name" required="">
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="form-group col-md-12">
+      <div class="" style="max-height: 600px; overflow: auto">
+        <table class="table table-bordered table-hover dataTable">
+          <thead>
+							<tr sort-thead on-sort="vm.onSort(item)">
+								<th key="code">Permission Name</th>
+								<th no-sort class="text-center wd-50"></th>
+							</tr>
+						</thead>
+						<tbody ng-repeat="permission in vm.permissions">
+              <tr ng-init="permission.show = false" ng-animate-children="true">
+                <td ng-click="permission.show = !permission.show">
+                  <i class="fa" ng-class="{ 'fa-plus' : permission.show == false, 'fa-minus' : permission.show == true}" ng-if="permission.parent.length > 0"></i>
+                  {{ permission.description }}
+                </td>
+                <td class="text-center">
+                  <input type="checkbox"
+                    ng-value="child.id"
+                    ng-click="vm.toggleSelected(permission)"
+                    ng-checked="vm.permissionSelected.indexOf(permission.id) > -1"
+                    ></td>
+              </tr>
+							<tr ng-repeat="child in permission.parent" ng-show="permission.show">
+                <td style="padding-left: 30px;">{{ child.description }}</td>
+                <td class="text-center">
+                  <input type="checkbox" ng-value="child.id"
+                    ng-checked="vm.permissionSelected.indexOf(child.id) > -1"
+
+                    ng-click="vm.toggleSelected(child)"></td>
+							</tr>
+						</tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" ng-click="vm.close()">
+    Cancel
+  </button>
+  <button class="btn btn-primary" type="button" ng-click="vm.submit()">
+    OK
+  </button>
+</div>
